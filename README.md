@@ -17,6 +17,7 @@ This tools analyses the configuration of the GitHub repositories of your *organi
 
     You can also copy-paste and rename the example `.env.template` file.
 
+    If you don't kwow how to create a Personal Access Token for your organization, follow [these instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The Personal Access Toekn you create needs to have `repo` and `admin:org > read:org` access.
 
 ### 🚨 Github rate limiting
 
