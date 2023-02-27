@@ -4,8 +4,9 @@
   "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "build",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "resolveJsonModule": true
   }
 }
