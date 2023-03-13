@@ -43,7 +43,6 @@
   "dependencies": {
     "@octokit/graphql": "^5.0.5",
     "chalk": "^4.1.2",
-    "dotenv": "^16.0.3",
-    "octokit": "^2.0.14"
+    "dotenv": "^16.0.3"
   }
 }

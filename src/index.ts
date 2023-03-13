@@ -1,20 +1,20 @@
-// import fs from 'fs/promises';
+import fs from 'fs/promises';
 
 import * as dotenv from 'dotenv';
+
 dotenv.config();
 
-// import { reposListForOrg } from "./octokit";
 import health from './health';
-import { reposListForOrg } from "./octokit-ql";
+import { checkOrgReposHealth } from "./octokit-ql";
 
 (async function() {
-  const data = await reposListForOrg(process.env.GITHUB_ORG_NAME ?? '');
-  // try {
-  //   await fs.writeFile('./response.json', JSON.stringify(data, null, 2));
-  //   console.log('Response saved at response.json file!');
+  const data = await checkOrgReposHealth(process.env.GITHUB_ORG_NAME ?? '');
 
-  // } catch (err) {
-  //   console.log(err);
-  // }
-  health(data);
+  try {
+    // const data = await fs.readFile('./response.json', 'utf8');
+    // await health(JSON.parse(data));
+    await health(data);
+  } catch (err) {
+    console.log(err);
+  }
 }());
