@@ -8,13 +8,16 @@ import health from './health';
 import { checkOrgReposHealth } from "./octokit-ql";
 
 (async function() {
-  const data = await checkOrgReposHealth(process.env.GITHUB_ORG_NAME ?? '');
+  let data;
 
-  try {
-    // const data = await fs.readFile('./response.json', 'utf8');
-    // await health(JSON.parse(data));
-    await health(data);
-  } catch (err) {
-    console.log(err);
+  if (process.env.MOCKED === 'true') {
+    console.info('Reading mocked data from `mocked.json` file...')
+    data = await fs.readFile('./mocked.json', 'utf8');
+    data = JSON.parse(data);
+  } else {
+    data = await checkOrgReposHealth(process.env.GITHUB_ORG_NAME ?? '');
+
   }
+
+  await health(data);
 }());

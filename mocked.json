@@ -1,0 +1,68 @@
+[
+  {
+    "nameWithOwner": "inigocoder/demo-repository",
+    "codeOfConduct": null,
+    "licenseInfo": null,
+    "defaultBranchRef": {
+      "name": "main",
+      "branchProtectionRule": null
+    },
+    "hasVulnerabilityAlertsEnabled": false,
+    "isBlankIssuesEnabled": false,
+    "isPrivate": true,
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "pullRequests": {
+      "totalCount": 0
+    },
+    "issues": {
+      "totalCount": 0
+    }
+  },
+  {
+    "nameWithOwner": "inigocoder/.github",
+    "codeOfConduct": null,
+    "licenseInfo": {
+      "name": "MIT License",
+      "hidden": false,
+      "spdxId": "MIT"
+    },
+    "defaultBranchRef": {
+      "name": "main",
+      "branchProtectionRule": null
+    },
+    "hasVulnerabilityAlertsEnabled": false,
+    "isBlankIssuesEnabled": false,
+    "isPrivate": false,
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "pullRequests": {
+      "totalCount": 0
+    },
+    "issues": {
+      "totalCount": 0
+    }
+  },
+  {
+    "nameWithOwner": "inigocoder/test",
+    "codeOfConduct": null,
+    "licenseInfo": null,
+    "defaultBranchRef": {
+      "name": "main",
+      "branchProtectionRule": {
+        "id": "BPR_kwDOJBlKm84CEQdC"
+      }
+    },
+    "hasVulnerabilityAlertsEnabled": true,
+    "isBlankIssuesEnabled": false,
+    "isPrivate": false,
+    "isSecurityPolicyEnabled": false,
+    "isTemplate": false,
+    "pullRequests": {
+      "totalCount": 0
+    },
+    "issues": {
+      "totalCount": 0
+    }
+  }
+]

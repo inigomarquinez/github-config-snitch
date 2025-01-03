@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 
 import chalk from 'chalk';
+import * as Papa from 'papaparse';
 
 import { IRepoHealth } from './types';
 
@@ -10,17 +11,19 @@ const health = async (data: any) => {
   data.forEach((repo: any) => {
     const repoHealth: IRepoHealth = {};
 
-    repoHealth.codeOfConduct = repo.codeOfConduct?.name;
-    repoHealth.licenseInfo = repo.licenseInfo?.spdxId;
-    repoHealth.defaultBranchRef = repo.defaultBranchRef?.name;
-    repoHealth.defaultBranchProtectionRules = repo.defaultBranchRef.branchProtectionRule?.id;
+    repoHealth.name = repo.nameWithOwner;
+    repoHealth.url = repo.url;
+    repoHealth.codeOfConduct = repo.codeOfConduct?.name ?? null;
+    repoHealth.licenseInfo = repo.licenseInfo?.spdxId ?? null;
+    repoHealth.defaultBranchRef = repo.defaultBranchRef?.name ?? null;
+    repoHealth.defaultBranchProtectionRules = repo.defaultBranchRef.branchProtectionRule?.id !== undefined;
     repoHealth.hasVulnerabilityAlertsEnabled = repo.hasVulnerabilityAlertsEnabled;
     repoHealth.isBlankIssuesEnabled = repo.isBlankIssuesEnabled;
     repoHealth.isPrivate = repo.isPrivate;
     repoHealth.isSecurityPolicyEnabled = repo.isSecurityPolicyEnabled;
     repoHealth.isTemplate = repo.isTemplate;
-    repoHealth.pullRequests = repo.pullRequests?.totalCount;
-    repoHealth.issues = repo.issues?.totalCount;
+    repoHealth.pullRequests = repo.pullRequests?.totalCount ?? 0;
+    repoHealth.issues = repo.issues?.totalCount ?? 0;
 
     health[repo.nameWithOwner] = repoHealth;
   });
@@ -32,6 +35,8 @@ const health = async (data: any) => {
     await fs.writeFile('./health.json', JSON.stringify(health, null, 2));
     console.log('Health saved at health.json file!');
 
+    await fs.writeFile('./health.csv', Papa.unparse(Object.values(health)));
+    console.log('Health saved at health.csv file!');
   } catch (err) {
     console.log(err);
   }

@@ -16,8 +16,9 @@ const query = `
         }
         nodes {
           nameWithOwner
+          url
           codeOfConduct {
-            name
+            url
           }
           licenseInfo {
             name

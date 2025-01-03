@@ -1,8 +1,10 @@
 export interface IRepoHealth {
+  name?: string;
+  url?: string;
   codeOfConduct?: string;
   licenseInfo?: string;
   defaultBranchRef?: string;
-  defaultBranchProtectionRules?: string;
+  defaultBranchProtectionRules?: boolean;
   hasVulnerabilityAlertsEnabled?: boolean;
   isBlankIssuesEnabled?: boolean;
   isPrivate?: boolean;
